@@ -1,0 +1,158 @@
+2025-04-19 18:40:54,559 : INFO : Start of Training
+2025-04-19 18:40:54,559 : INFO : Run_id:2025-04-19_184054_455227292
+2025-04-19 18:40:54,560 : INFO : Start of Data Load, validation and transformation
+2025-04-19 18:40:54,560 : INFO : Start of Archiving Old Rejected Files...
+2025-04-19 18:40:54,560 : INFO : End of Archiving Old Rejected Files...
+2025-04-19 18:40:54,561 : INFO : Start of Archiving Old Validated Files...
+2025-04-19 18:40:54,567 : INFO : End of Archiving Old Validated Files...
+2025-04-19 18:40:54,567 : INFO : Start of Archiving Old Processed Files...
+2025-04-19 18:40:54,568 : INFO : End of Archiving Old Processed Files...
+2025-04-19 18:40:54,568 : INFO : Start of Archiving Old Result Files...
+2025-04-19 18:40:54,568 : INFO : End of Archiving Old Result Files...
+2025-04-19 18:40:54,568 : INFO : Start of Reading values From Schema...
+2025-04-19 18:40:54,569 : INFO : End of Reading values From Schema...
+2025-04-19 18:40:54,569 : INFO : Start of Validating Column Length...
+2025-04-19 18:40:54,569 : INFO : End of Validating Column Length...
+2025-04-19 18:40:54,569 : INFO : Start of Validating Missing Values...
+2025-04-19 18:40:54,569 : INFO : End of Validating Missing Values...
+2025-04-19 18:40:54,569 : INFO : Start of Replacing Missing Values with NULL...
+2025-04-19 18:40:54,569 : INFO : End of Replacing Missing Values with NULL...
+2025-04-19 18:40:54,570 : INFO : Start of Creating Table...
+2025-04-19 18:40:54,570 : INFO : Opened training database successfully
+2025-04-19 18:40:54,571 : INFO : Tables created successfully
+2025-04-19 18:40:54,571 : INFO : Closed training database successfully
+2025-04-19 18:40:54,571 : INFO : End of Creating Table...
+2025-04-19 18:40:54,572 : INFO : Opened training database successfully
+2025-04-19 18:40:54,572 : INFO : Start of Inserting Data into Table...
+2025-04-19 18:40:54,572 : INFO : End of Inserting Data into Table...
+2025-04-19 18:40:54,572 : INFO : Start of Exporting Data into CSV...
+2025-04-19 18:40:54,573 : INFO : Opened training database successfully
+2025-04-19 18:40:54,681 : INFO : End of Exporting Data into CSV...
+2025-04-19 18:40:54,683 : INFO : Start of Moving Processed Files...
+2025-04-19 18:40:54,683 : INFO : End of Moving Processed Files...
+2025-04-19 18:40:54,683 : INFO : End of Data Load, validation and transformation
+2025-04-19 18:40:54,684 : INFO : Start of Preprocessing...
+2025-04-19 18:40:54,684 : INFO : Start of reading dataset...
+2025-04-19 18:40:54,710 : INFO : End of reading dataset...
+2025-04-19 18:40:54,710 : INFO : Start of Droping Columns...
+2025-04-19 18:40:54,711 : INFO : End of Droping Columns...
+2025-04-19 18:40:54,711 : INFO : Start of feature encoding...
+2025-04-19 18:40:54,715 : INFO : End of feature encoding...
+2025-04-19 18:40:54,716 : INFO : Start of Droping Columns...
+2025-04-19 18:40:54,717 : INFO : End of Droping Columns...
+2025-04-19 18:40:54,717 : INFO : Start of finding missing values...
+2025-04-19 18:40:54,724 : INFO : End of finding missing values...
+2025-04-19 18:40:54,724 : INFO : Start of imputing missing values...
+2025-04-19 18:40:54,744 : INFO : End of imputing missing values...
+2025-04-19 18:40:54,745 : INFO : Start of splitting features and label ...
+2025-04-19 18:40:54,746 : INFO : End of splitting features and label ...
+2025-04-19 18:40:54,746 : INFO : End of Preprocessing...
+2025-04-19 18:40:54,747 : INFO : Start of elbow plotting...
+2025-04-19 18:40:57,170 : ERROR : Exception raised while elbow plotting:main thread is not in main loop
+Traceback (most recent call last):
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\backend_bases.py", line 2922, in _wait_cursor_for_draw_cm
+    self.canvas.set_cursor(tools.Cursors.WAIT)
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\backends\_backend_tk.py", line 458, in set_cursor
+    self._tkcanvas.configure(cursor=cursord[cursor])
+  File "C:\Users\NISHANT SINGH\AppData\Local\Programs\Python\Python312\Lib\tkinter\__init__.py", line 1722, in configure
+    return self._configure('configure', cnf, kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NISHANT SINGH\AppData\Local\Programs\Python\Python312\Lib\tkinter\__init__.py", line 1712, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+RuntimeError: main thread is not in main loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\apps\tuning\cluster.py", line 63, in elbow_plot
+    plt.savefig('apps/models/kmeans_elbow.png') # saving the elbow plot locally
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\pyplot.py", line 1243, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\figure.py", line 3490, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\backend_bases.py", line 2184, in print_figure
+    result = print_method(
+             ^^^^^^^^^^^^^
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\backend_bases.py", line 2040, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+                                                                 ^^^^^
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\backends\backend_agg.py", line 481, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\backends\backend_agg.py", line 429, in _print_pil
+    FigureCanvasAgg.draw(self)
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\backends\backend_agg.py", line 380, in draw
+    with (self.toolbar._wait_cursor_for_draw_cm() if self.toolbar
+  File "C:\Users\NISHANT SINGH\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\backend_bases.py", line 2925, in _wait_cursor_for_draw_cm
+    self.canvas.set_cursor(self._last_cursor)
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\backends\_backend_tk.py", line 458, in set_cursor
+    self._tkcanvas.configure(cursor=cursord[cursor])
+  File "C:\Users\NISHANT SINGH\AppData\Local\Programs\Python\Python312\Lib\tkinter\__init__.py", line 1722, in configure
+    return self._configure('configure', cnf, kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NISHANT SINGH\AppData\Local\Programs\Python\Python312\Lib\tkinter\__init__.py", line 1712, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+RuntimeError: main thread is not in main loop
+2025-04-19 18:40:57,427 : ERROR : Unsuccessful End of Training
+Traceback (most recent call last):
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\backend_bases.py", line 2922, in _wait_cursor_for_draw_cm
+    self.canvas.set_cursor(tools.Cursors.WAIT)
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\backends\_backend_tk.py", line 458, in set_cursor
+    self._tkcanvas.configure(cursor=cursord[cursor])
+  File "C:\Users\NISHANT SINGH\AppData\Local\Programs\Python\Python312\Lib\tkinter\__init__.py", line 1722, in configure
+    return self._configure('configure', cnf, kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NISHANT SINGH\AppData\Local\Programs\Python\Python312\Lib\tkinter\__init__.py", line 1712, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+RuntimeError: main thread is not in main loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\apps\tuning\cluster.py", line 63, in elbow_plot
+    plt.savefig('apps/models/kmeans_elbow.png') # saving the elbow plot locally
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\pyplot.py", line 1243, in savefig
+    res = fig.savefig(*args, **kwargs)  # type: ignore[func-returns-value]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\figure.py", line 3490, in savefig
+    self.canvas.print_figure(fname, **kwargs)
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\backend_bases.py", line 2184, in print_figure
+    result = print_method(
+             ^^^^^^^^^^^^^
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\backend_bases.py", line 2040, in <lambda>
+    print_method = functools.wraps(meth)(lambda *args, **kwargs: meth(
+                                                                 ^^^^^
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\backends\backend_agg.py", line 481, in print_png
+    self._print_pil(filename_or_obj, "png", pil_kwargs, metadata)
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\backends\backend_agg.py", line 429, in _print_pil
+    FigureCanvasAgg.draw(self)
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\backends\backend_agg.py", line 380, in draw
+    with (self.toolbar._wait_cursor_for_draw_cm() if self.toolbar
+  File "C:\Users\NISHANT SINGH\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\backend_bases.py", line 2925, in _wait_cursor_for_draw_cm
+    self.canvas.set_cursor(self._last_cursor)
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\.venv\Lib\site-packages\matplotlib\backends\_backend_tk.py", line 458, in set_cursor
+    self._tkcanvas.configure(cursor=cursord[cursor])
+  File "C:\Users\NISHANT SINGH\AppData\Local\Programs\Python\Python312\Lib\tkinter\__init__.py", line 1722, in configure
+    return self._configure('configure', cnf, kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NISHANT SINGH\AppData\Local\Programs\Python\Python312\Lib\tkinter\__init__.py", line 1712, in _configure
+    self.tk.call(_flatten((self._w, cmd)) + self._options(cnf))
+RuntimeError: main thread is not in main loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\apps\training\train_model.py", line 66, in training_model
+    number_of_clusters = self.cluster.elbow_plot(self.X)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\NISHANT SINGH\PycharmProjects\EmployeeRetention\apps\tuning\cluster.py", line 72, in elbow_plot
+    raise Exception()
+Exception

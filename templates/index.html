@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <title>Employee Churn</title>
+
+    <style>
+        body {
+            background: url('/static/img/coverpg.png') no-repeat center center fixed; /* Local background image */
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+        }
+
+        .container {
+            background: rgba(30, 30, 30, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+            transform: perspective(1000px);
+            transition: transform 0.3s;
+        }
+
+        .container:hover {
+            transform: translateY(-10px) perspective(1000px);
+        }
+
+        h2 {
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            background-color: #444;
+            color: #fff;
+            border: 1px solid #666;
+            transition: transform 0.2s;
+        }
+
+        .form-control:focus {
+            transform: translateZ(10px);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            background-color: #555;
+            border-color: #007bff;
+        }
+
+        button {
+            background-color: #007bff;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="/static/img/turnover.png" alt="Employee Turnover Logo" style="width: 100px; height: auto;">
+            <h2>Predict Employee Retention</h2>
+            <p class="lead">Fill in the details below to predict employee retention.</p>
+        </div>
+
+        <h4 class="mb-3 text-center">Employee Details</h4>
+        <div id="result"></div>
+
+        <form id="predictForm" class="needs-validation">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="satisfaction_level">Satisfaction Level</label>
+                    <input type="text" class="form-control" id="satisfaction_level" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="last_evaluation">Last Evaluation</label>
+                    <input type="text" class="form-control" id="last_evaluation" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="number_project">Number Of Project</label>
+                    <input type="text" class="form-control" id="number_project" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="average_montly_hours">Average Monthly Hours</label>
+                    <input type="text" class="form-control" id="average_montly_hours" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="time_spend_company">Time Spend Company</label>
+                    <input type="text" class="form-control" id="time_spend_company" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="Work_accident">Work Accident</label>
+                    <input type="text" class="form-control" id="Work_accident" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="promotion_last_5years">Promotion Last 5 Years</label>
+                    <input type="text" class="form-control" id="promotion_last_5years" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="salary">Salary</label>
+                    <input type="text" class="form-control" id="salary" required>
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+        </form>
+
+        <footer class="my-5">
+            <p class="mb-1">&copy; 2024-2025 Nishant Singh</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Privacy</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+        </footer>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $("#predictForm").submit(function(event) {
+            event.preventDefault();
+
+            var $form = $(this);
+            var satisfaction_level = $form.find("input[id='satisfaction_level']").val();
+            var last_evaluation = $form.find("input[id='last_evaluation']").val();
+            var number_project = $form.find("input[id='number_project']").val();
+            var average_montly_hours = $form.find("input[id='average_montly_hours']").val();
+            var time_spend_company = $form.find("input[id='time_spend_company']").val();
+            var work_accident = $form.find("input[id='Work_accident']").val();
+            var promotion_last_5years = $form.find("input[id='promotion_last_5years']").val();
+            var salary = $form.find("input[id='salary']").val();
+
+            var settings = {
+                "url": "http://localhost:5000/prediction",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                "data": {
+                    "satisfaction_level": satisfaction_level,
+                    "last_evaluation": last_evaluation,
+                    "number_project": number_project,
+                    "average_montly_hours": average_montly_hours,
+                    "time_spend_company": time_spend_company,
+                    "Work_accident": work_accident,
+                    "promotion_last_5years": promotion_last_5years,
+                    "salary": salary
+                }
+            };
+
+            $.ajax(settings).done(function(response) {
+                console.log(response);
+                $("#result").empty().append('<div class="alert alert-success" role="alert">' + response + '</div>');
+            }).fail(function(jqXHR) {
+                $("#result").empty().append('<div class="alert alert-danger" role="alert">Error: ' + jqXHR.responseText + '</div>');
+            });
+        });
+    </script>
+</body>
+</html>
